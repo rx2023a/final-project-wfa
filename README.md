@@ -5,3 +5,6 @@
 Wahyu Tri Saputro <br/>
 Ferry Nur Alfian Eka Putra <br/>
 Muhammad Andi Akbar Ramadhan <br/>
+
+## Assets Used
+### 
