@@ -7,4 +7,10 @@ Ferry Nur Alfian Eka Putra <br/>
 Muhammad Andi Akbar Ramadhan <br/>
 
 ## Assets Used
-### 
+1. Knife : https://skfb.ly/opZtu
+2. Table : https://skfb.ly/6RLWO
+## Unity Assets Store
+4. Easy Volume Renderer
+5. Mesh Slicer
+6. Autohand - VR Interaction
+7. Oculus Integration (Deprecated)
