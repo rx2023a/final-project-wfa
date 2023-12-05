@@ -10,7 +10,7 @@ Muhammad Andi Akbar Ramadhan <br/>
 1. Knife : https://skfb.ly/opZtu
 2. Table : https://skfb.ly/6RLWO
 3. EzySlice : https://github.com/DavidArayan/ezy-slice
-4. Skull : https://www.embodi3d.com/files/file/61519-skull-3/
+4. Skull : https://www.embodi3d.com/files/file/59554-ct-scan-mandible/
 ### Unity Assets Store
 4. Easy Volume Renderer
 5. Mesh Slicer
