@@ -16,3 +16,7 @@ Muhammad Andi Akbar Ramadhan <br/>
 5. Mesh Slicer
 7. Autohand - VR Interaction
 8. Oculus Integration (Deprecated)
+
+## Other Application Used
+1. 3D Slicer
+2. Blender
