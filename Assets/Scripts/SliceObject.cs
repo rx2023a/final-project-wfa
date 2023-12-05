@@ -4,6 +4,7 @@ using UnityEngine;
 using EzySlice;
 using UnityEngine.InputSystem;
 using Unity.VisualScripting;
+using Oculus.Interaction;
 
 public class SliceObject : MonoBehaviour
 {
@@ -56,6 +57,7 @@ public class SliceObject : MonoBehaviour
     {
         Rigidbody rigidbody = slicedObject.AddComponent<Rigidbody>();
         MeshCollider collider = rigidbody.AddComponent<MeshCollider>();
+        Grabbable grabbableSctipt = slicedObject.AddComponent<Grabbable>();
         collider.convex = true;
         rigidbody.AddExplosionForce(cutForce, slicedObject.transform.position, 1);
     }
