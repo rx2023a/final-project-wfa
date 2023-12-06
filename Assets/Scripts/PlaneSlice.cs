@@ -23,21 +23,21 @@ public class PlaneSlice : MonoBehaviour
 
     public void Slice(GameObject target)
     {
-        SlicedHull hull = target.Slice(firstPlane.position, firstPlane.up);
+        SlicedHull firstSlice = target.Slice(firstPlane.position, firstPlane.up);
 
-        if(hull != null) 
+        if(firstSlice != null) 
         {
-            GameObject upperHull = hull.CreateUpperHull(target, crossSectionMaterial);
-            // GameObject upperHull1 = hull.CreateUpperHull(target, crossSectionMaterial);
-            // Destroy(upperHull);
-            GameObject lowerHull = hull.CreateLowerHull(target, crossSectionMaterial);
-            Destroy(target);
+            GameObject upperHull = firstSlice.CreateUpperHull(target, crossSectionMaterial);
+            GameObject lowerHull = firstSlice.CreateLowerHull(target, crossSectionMaterial);
+            // Destroy(target);
 
-            if(lowerHull != null)
+            SlicedHull secondSlice = lowerHull.Slice(secondPlane.position, secondPlane.up);
+            
+            if (secondSlice != null)
             {
-                GameObject middleHull = hull.CreateUpperHull(target, crossSectionMaterial);
-                GameObject finalLowerHull = hull.CreateLowerHull(target, crossSectionMaterial);
-                Destroy(target);
+                GameObject middleHull = secondSlice.CreateUpperHull(target, crossSectionMaterial);
+                GameObject finalLowerHull = secondSlice.CreateLowerHull(target, crossSectionMaterial);
+                Destroy(lowerHull);
             }
         }
     }
