@@ -2788,7 +2788,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d347bd8bf819e514e81edea9da54af9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  planeDebug: {fileID: 1250297602}
+  firstPlane: {fileID: 0}
+  secondPlane: {fileID: 0}
   target: {fileID: 345394029}
   crossSectionMaterial: {fileID: -3963241562183589234, guid: 5dee120cea365a7429acdc6ad517fcea, type: 3}
 --- !u!1 &1281245578
@@ -3963,6 +3964,37 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 872117689}
   m_SourcePrefab: {fileID: 100100000, guid: 5d00e691a5e2c5e4f881485feb5c8806, type: 3}
+--- !u!1 &2033643875
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2033643876}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2033643876
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2033643875}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.067306, y: 0.17503422, z: -10.676453}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -3978,3 +4010,4 @@ SceneRoots:
   - {fileID: 345394034}
   - {fileID: 1250297602}
   - {fileID: 635089798}
+  - {fileID: 2033643876}
