@@ -39,6 +39,7 @@ public class PlaneSlice : MonoBehaviour
                 GameObject finalLowerHull = secondSlice.CreateLowerHull(target, crossSectionMaterial);
                 Destroy(lowerHull);
             }
+            Destroy(target);
         }
     }
 }
