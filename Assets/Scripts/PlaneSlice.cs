@@ -2,14 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using EzySlice;
-using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 public class PlaneSlice : MonoBehaviour
 {
     public Transform firstPlane;
     public Transform secondPlane;
-    public GameObject target;
+    private GameObject currentTarget;
     public Material crossSectionMaterial;
 
     public AudioClip crackingSound;
@@ -18,6 +17,8 @@ public class PlaneSlice : MonoBehaviour
     private Stack<GameObject> previousSlices = new Stack<GameObject>(); // Stack to store previous slices
     private GameObject clonedObject; // Reference to the cloned object
     private bool isClonedHidden = true; // Flag to track cloned object visibility
+
+    private TargetController targetController;
 
     void Start()
     {
@@ -28,21 +29,28 @@ public class PlaneSlice : MonoBehaviour
             audioSource = gameObject.AddComponent<AudioSource>();
         }
         audioSource.clip = crackingSound;
+
+        // Find the TargetController in the scene
+        targetController = GetComponent<TargetController>();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void OnClickSlice()
     {
-        if(Keyboard.current.spaceKey.wasPressedThisFrame)
+        currentTarget = targetController.GetCurrentTarget();
+        if (currentTarget != null)
         {
-            Slice(target);
-            PlayCrackingSound(); // Play the cracking sound
+            Slice(currentTarget);
+            PlayCrackingSound();
         }
+        else
+        {
+            Debug.LogError("No current target selected. Please choose a target.");
+        }
+    }
 
-        if (Keyboard.current.zKey.wasPressedThisFrame)
-        {
-            UndoSlice();
-        }
+    public void OnClickUndoSlice()
+    {
+        UndoSlice();
     }
 
     public void Slice(GameObject target)
@@ -53,7 +61,6 @@ public class PlaneSlice : MonoBehaviour
         {
             GameObject upperHull = firstSlice.CreateUpperHull(target, crossSectionMaterial);
             GameObject lowerHull = firstSlice.CreateLowerHull(target, crossSectionMaterial);
-            // Destroy(target);
 
             SlicedHull secondSlice = lowerHull.Slice(secondPlane.position, secondPlane.up);
             
@@ -63,10 +70,10 @@ public class PlaneSlice : MonoBehaviour
                 GameObject finalLowerHull = secondSlice.CreateLowerHull(target, crossSectionMaterial);
                 Destroy(lowerHull);
             }
-            Destroy(target);
+            Destroy(currentTarget);
 
             // Store the sliced object state into the stack
-            GameObject slicedObject = Instantiate(target);
+            GameObject slicedObject = Instantiate(currentTarget);
             previousSlices.Push(slicedObject);
 
             // Hide the cloned object
@@ -92,8 +99,8 @@ public class PlaneSlice : MonoBehaviour
 
             // Restore the previous state by popping from the stack and setting it as the new target
             GameObject previousState = previousSlices.Pop();
-            Destroy(target); // Destroy the current sliced object
-            target = previousState;
+            Destroy(currentTarget); // Destroy the current sliced object
+            currentTarget = previousState;
 
             // Show the cloned object
             SetObjectVisibility(clonedObject, true);
