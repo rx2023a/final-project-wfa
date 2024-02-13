@@ -440,6 +440,7 @@ GameObject:
   - component: {fileID: 157846028}
   - component: {fileID: 157846031}
   - component: {fileID: 157846033}
+  - component: {fileID: 157846034}
   m_Layer: 0
   m_Name: Right Surface
   m_TagString: Untagged
@@ -455,13 +456,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 157846027}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0.077, y: -0.1296, z: 0.0307}
+  m_LocalRotation: {x: 0, y: -0.8480481, z: 0, w: 0.52991927}
+  m_LocalPosition: {x: 0.075, y: -0.13, z: 0.03}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1429740315}
-  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -116, z: 0}
 --- !u!114 &157846031
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -490,6 +491,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _planeSurface: {fileID: 157846031}
   _radius: 0.037
+--- !u!114 &157846034
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 157846027}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d3525d333237a343bdfa644a6c86f5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pointPrefab: {fileID: 8775877334547465219, guid: 22333679bf034ba4c8bb31ce5577ce7b, type: 3}
+  planePrefab: {fileID: 4597054387775919395, guid: cd36a0c21874ffb4186e4ac8acdbfd6c, type: 3}
 --- !u!1001 &200813194
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1109,7 +1124,6 @@ GameObject:
   - component: {fileID: 403155300}
   - component: {fileID: 403155301}
   - component: {fileID: 403155302}
-  - component: {fileID: 403155303}
   m_Layer: 0
   m_Name: Right Poke
   m_TagString: Untagged
@@ -1148,7 +1162,7 @@ MonoBehaviour:
   _maxInteractors: -1
   _maxSelectingInteractors: -1
   _data: {fileID: 0}
-  _pointableElement: {fileID: 0}
+  _pointableElement: {fileID: 1967638561}
   _surfacePatch: {fileID: 157846033}
   _enterHoverNormal: 0
   _enterHoverTangent: 0
@@ -1287,26 +1301,55 @@ MonoBehaviour:
   m_GameObject: {fileID: 403155299}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5d3525d333237a343bdfa644a6c86f5c, type: 3}
+  m_Script: {fileID: 11500000, guid: e2f8f6e9e6f3e114b9bf9a57c2160615, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pointPrefab: {fileID: 8775877334547465219, guid: 22333679bf034ba4c8bb31ce5577ce7b, type: 3}
-  planePrefab: {fileID: 4597054387775919395, guid: cd36a0c21874ffb4186e4ac8acdbfd6c, type: 3}
---- !u!114 &403155303
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 403155299}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67e6c2f9a479e354499c4cccdaa6432d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pointPrefab: {fileID: 8775877334547465219, guid: 22333679bf034ba4c8bb31ce5577ce7b, type: 3}
-  lineRendererPrefab: {fileID: 5025534152441811436, guid: 8e47fdca944e0f6429e45b88cf2832f5, type: 3}
-  planePrefab: {fileID: 4597054387775919395, guid: cd36a0c21874ffb4186e4ac8acdbfd6c, type: 3}
+  _pointable: {fileID: 1967638561}
+  _whenRelease:
+    m_PersistentCalls:
+      m_Calls: []
+  _whenHover:
+    m_PersistentCalls:
+      m_Calls: []
+  _whenUnhover:
+    m_PersistentCalls:
+      m_Calls: []
+  _whenSelect:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 49133182}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 157846034}
+        m_TargetAssemblyTypeName: SpawnPlane, Assembly-CSharp
+        m_MethodName: SpawnPoints
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _whenUnselect:
+    m_PersistentCalls:
+      m_Calls: []
+  _whenMove:
+    m_PersistentCalls:
+      m_Calls: []
+  _whenCancel:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1001 &404424580
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2762,6 +2805,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _pokeInteractable: {fileID: 1617883377}
   _buttonBaseTransform: {fileID: 1591867632}
+--- !u!114 &647933794 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 820969500809806042, guid: d2d6934a666a18d46b8b7a3864dc9f63, type: 3}
+  m_PrefabInstance: {fileID: 1970698142}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 925ef87c5bafc37469a2f7ec825dee4b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &766432670
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2972,6 +3026,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9067480af55f5874d8f613b16812f968, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &909776131 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7516989854395125640, guid: d2d6934a666a18d46b8b7a3864dc9f63, type: 3}
+  m_PrefabInstance: {fileID: 1970698142}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &945002620
 GameObject:
   m_ObjectHideFlags: 0
@@ -3782,6 +3841,7 @@ GameObject:
   - component: {fileID: 1200295086}
   - component: {fileID: 1200295084}
   - component: {fileID: 1200295087}
+  - component: {fileID: 1200295088}
   m_Layer: 0
   m_Name: Left Surface
   m_TagString: Untagged
@@ -3811,13 +3871,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1200295082}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -0.077, y: -0.1296, z: 0.0307}
+  m_LocalRotation: {x: 0, y: 0.8480481, z: 0, w: 0.5299193}
+  m_LocalPosition: {x: -0.075, y: -0.13, z: 0.03}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1429740315}
-  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 116, z: 0}
 --- !u!114 &1200295087
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3832,6 +3892,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _planeSurface: {fileID: 1200295084}
   _radius: 0.037
+--- !u!114 &1200295088
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1200295082}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d3525d333237a343bdfa644a6c86f5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pointPrefab: {fileID: 8775877334547465219, guid: 22333679bf034ba4c8bb31ce5577ce7b, type: 3}
+  planePrefab: {fileID: 4597054387775919395, guid: cd36a0c21874ffb4186e4ac8acdbfd6c, type: 3}
 --- !u!1 &1222721577
 GameObject:
   m_ObjectHideFlags: 0
@@ -4456,7 +4530,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1354217575}
   - component: {fileID: 1354217576}
-  - component: {fileID: 1354217577}
   m_Layer: 0
   m_Name: Spawn Plane
   m_TagString: Untagged
@@ -4494,21 +4567,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pointPrefab: {fileID: 8775877334547465219, guid: 22333679bf034ba4c8bb31ce5577ce7b, type: 3}
   planePrefab: {fileID: 4597054387775919395, guid: cd36a0c21874ffb4186e4ac8acdbfd6c, type: 3}
---- !u!114 &1354217577
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1354217574}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67e6c2f9a479e354499c4cccdaa6432d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pointPrefab: {fileID: 0}
-  lineRendererPrefab: {fileID: 0}
-  planePrefab: {fileID: 0}
 --- !u!1 &1429740314
 GameObject:
   m_ObjectHideFlags: 0
@@ -4789,7 +4847,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1514807697
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5217,7 +5275,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1619694964}
-  - component: {fileID: 1619694967}
   m_Layer: 0
   m_Name: Skull
   m_TagString: Untagged
@@ -5241,55 +5298,6 @@ Transform:
   - {fileID: 512609503}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
---- !u!114 &1619694967
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1619694963}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1464721f2283eb14e94a33e812b47be4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _interactableView: {fileID: 1344515326}
-  _whenHover:
-    m_PersistentCalls:
-      m_Calls: []
-  _whenUnhover:
-    m_PersistentCalls:
-      m_Calls: []
-  _whenSelect:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 403155299}
-        m_TargetAssemblyTypeName: SpawnCubeOnSelect, Assembly-CSharp
-        m_MethodName: 
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  _whenUnselect:
-    m_PersistentCalls:
-      m_Calls: []
-  _whenInteractorViewAdded:
-    m_PersistentCalls:
-      m_Calls: []
-  _whenInteractorViewRemoved:
-    m_PersistentCalls:
-      m_Calls: []
-  _whenSelectingInteractorViewAdded:
-    m_PersistentCalls:
-      m_Calls: []
-  _whenSelectingInteractorViewRemoved:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1 &1632755283
 GameObject:
   m_ObjectHideFlags: 0
@@ -5398,6 +5406,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1727417621}
   - component: {fileID: 1727417622}
+  - component: {fileID: 1727417623}
   m_Layer: 0
   m_Name: Left Poke
   m_TagString: Untagged
@@ -5436,7 +5445,7 @@ MonoBehaviour:
   _maxInteractors: -1
   _maxSelectingInteractors: -1
   _data: {fileID: 0}
-  _pointableElement: {fileID: 0}
+  _pointableElement: {fileID: 1967638561}
   _surfacePatch: {fileID: 1200295087}
   _enterHoverNormal: 0
   _enterHoverTangent: 0
@@ -5566,6 +5575,64 @@ MonoBehaviour:
     ReEnterDistance: 0.02
   _closeDistanceThreshold: 0.001
   _tiebreakerScore: 0
+--- !u!114 &1727417623
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1727417620}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2f8f6e9e6f3e114b9bf9a57c2160615, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _pointable: {fileID: 1967638561}
+  _whenRelease:
+    m_PersistentCalls:
+      m_Calls: []
+  _whenHover:
+    m_PersistentCalls:
+      m_Calls: []
+  _whenUnhover:
+    m_PersistentCalls:
+      m_Calls: []
+  _whenSelect:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 49133182}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1200295088}
+        m_TargetAssemblyTypeName: SpawnPlane, Assembly-CSharp
+        m_MethodName: SpawnPoints
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _whenUnselect:
+    m_PersistentCalls:
+      m_Calls: []
+  _whenMove:
+    m_PersistentCalls:
+      m_Calls: []
+  _whenCancel:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1001 &1746109243
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6431,6 +6498,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: cf41b1814cd0fe243a64c7d3ab97119e, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1967638556}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: cf41b1814cd0fe243a64c7d3ab97119e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1967638561}
   m_SourcePrefab: {fileID: 100100000, guid: cf41b1814cd0fe243a64c7d3ab97119e, type: 3}
 --- !u!4 &1967638549 stripped
 Transform:
@@ -6486,6 +6556,21 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 1863548356761173944, guid: cf41b1814cd0fe243a64c7d3ab97119e, type: 3}
+--- !u!114 &1967638561
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 49133182}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f1c05e246f22904dacc379a267083b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _transferOnSecondSelection: 0
+  _addNewPointsToFront: 0
+  _forwardElement: {fileID: 1967638561}
 --- !u!1001 &1970698142
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6494,6 +6579,66 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7516989854015812293, guid: d2d6934a666a18d46b8b7a3864dc9f63, type: 3}
+      propertyPath: _whenSelect.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7516989854015812293, guid: d2d6934a666a18d46b8b7a3864dc9f63, type: 3}
+      propertyPath: _whenSelect.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7516989854015812293, guid: d2d6934a666a18d46b8b7a3864dc9f63, type: 3}
+      propertyPath: _whenSelect.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 909776131}
+    - target: {fileID: 7516989854015812293, guid: d2d6934a666a18d46b8b7a3864dc9f63, type: 3}
+      propertyPath: _whenSelect.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 647933794}
+    - target: {fileID: 7516989854015812293, guid: d2d6934a666a18d46b8b7a3864dc9f63, type: 3}
+      propertyPath: _whenSelect.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 1354217576}
+    - target: {fileID: 7516989854015812293, guid: d2d6934a666a18d46b8b7a3864dc9f63, type: 3}
+      propertyPath: _whenSelect.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7516989854015812293, guid: d2d6934a666a18d46b8b7a3864dc9f63, type: 3}
+      propertyPath: _whenSelect.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7516989854015812293, guid: d2d6934a666a18d46b8b7a3864dc9f63, type: 3}
+      propertyPath: _whenSelect.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: PlayAudio
+      objectReference: {fileID: 0}
+    - target: {fileID: 7516989854015812293, guid: d2d6934a666a18d46b8b7a3864dc9f63, type: 3}
+      propertyPath: _whenSelect.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: SpawnPoints
+      objectReference: {fileID: 0}
+    - target: {fileID: 7516989854015812293, guid: d2d6934a666a18d46b8b7a3864dc9f63, type: 3}
+      propertyPath: _whenSelect.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Oculus.Interaction.AudioTrigger, Oculus.Interaction.Samples
+      objectReference: {fileID: 0}
+    - target: {fileID: 7516989854015812293, guid: d2d6934a666a18d46b8b7a3864dc9f63, type: 3}
+      propertyPath: _whenSelect.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: Oculus.Interaction.AudioTrigger, Oculus.Interaction.OVR.Samples
+      objectReference: {fileID: 0}
+    - target: {fileID: 7516989854015812293, guid: d2d6934a666a18d46b8b7a3864dc9f63, type: 3}
+      propertyPath: _whenSelect.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
+      value: SpawnPlane, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7516989854015812293, guid: d2d6934a666a18d46b8b7a3864dc9f63, type: 3}
+      propertyPath: _whenSelect.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 7516989854015812293, guid: d2d6934a666a18d46b8b7a3864dc9f63, type: 3}
+      propertyPath: _whenSelect.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 7516989854015812293, guid: d2d6934a666a18d46b8b7a3864dc9f63, type: 3}
+      propertyPath: _whenSelect.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 7516989854395125638, guid: d2d6934a666a18d46b8b7a3864dc9f63, type: 3}
       propertyPath: m_RootOrder
       value: 0

@@ -6,7 +6,6 @@ using Oculus.Interaction;
 public class SpawnPlane : MonoBehaviour
 {
     private LineRenderer lineRenderer;
-    private PokeInteractable eventWrapper;
 
     public GameObject pointPrefab;
     private Transform point1, point2;
@@ -15,6 +14,8 @@ public class SpawnPlane : MonoBehaviour
 
     public GameObject planePrefab;
     private bool isPlaneSpawned = false;
+
+    private PokeInteractor pokeInteractor;
 
     private void Start()
     {
@@ -29,43 +30,48 @@ public class SpawnPlane : MonoBehaviour
         }
 
         // Get Poke Interactable component
-        eventWrapper = GetComponent<PokeInteractable>();
+        pokeInteractor = GetComponent<PokeInteractor>();
 
-        if(eventWrapper == null)
+        if(pokeInteractor == null)
         {
-            Debug.LogError("Poke Interactable not found");
+            Debug.LogError("Poke Interactor not found. Make sure it's attached to this GameObject.");
         }
 
-        //eventWrapper.OnSelect.AddListener(OnPokeStart);
+        Oculus.Interaction.InteractableUnityEventWrapper._whenSelect(SpawnPoints);
     }
 
-    void OnPokeStart(Vector3 pokePosition)
+    public void SpawnPoints()
     {
-        if(!isPoint1Spawned) 
+        // Get the poke position
+        Vector3 pokePosition = PokePosition();
+
+        // Spawn the point at the poke position
+        if (!isPoint1Spawned)
         {
-            OnPokeSpawnFirstPoint(pokePosition);      
+            point1 = Instantiate(pointPrefab, pokePosition, Quaternion.identity).transform;
+            isPoint1Spawned = true;
         }
-        else if(!isPoint2Spawned) 
+        else if (!isPoint2Spawned)
         {
-            SpawnSecondPointAndPlane(pokePosition);
+            point2 = Instantiate(pointPrefab, pokePosition, Quaternion.identity).transform;
+            isPoint2Spawned = true;
         }
     }
 
-    void OnPokeSpawnFirstPoint(Vector3 position)
+    private Vector3 PokePosition()
     {
-        point1 = Instantiate(pointPrefab, position, Quaternion.identity).transform;
-        isPoint1Spawned = true;
-    }
+        // Get the current hand position
+        Vector3 pokePosition = pokeInteractor.transform.position;
 
-    void SpawnSecondPointAndPlane(Vector3 position)
-    {
-        point2 = Instantiate(pointPrefab, position, Quaternion.identity).transform;
-        isPoint2Spawned = true;
-        lineRenderer.enabled = true;
-        lineRenderer.positionCount = 2;
-        lineRenderer.SetPosition(0, point1.position);
-        lineRenderer.SetPosition(1, point2.position);
-        SpawnPlaneFromLine();
+        // Convert the hand position from local space to world space
+        pokePosition = pokeInteractor.transform.TransformPoint(pokePosition);
+
+        if(pokePosition == null)
+        {
+            Debug.Log("No Poke");
+        }
+
+        return pokePosition;
     }
 
     void SpawnPlaneFromLine()
