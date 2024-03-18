@@ -37,7 +37,7 @@ public class SpawnPlane : MonoBehaviour
             Debug.LogError("Poke Interactor not found. Make sure it's attached to this GameObject.");
         }
 
-        Oculus.Interaction.InteractableUnityEventWrapper._whenSelect(SpawnPoints);
+        // Oculus.Interaction.InteractableUnityEventWrapper._whenSelect(SpawnPoints);
     }
 
     public void SpawnPoints()
